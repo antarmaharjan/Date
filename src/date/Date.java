@@ -19,9 +19,12 @@ public class Date {
 		LocalDate now = LocalDate.now();
 		LocalDate birth = null;
 		Scanner scn = new Scanner(System.in);
-
+		int year =0;
+		int month =0;
 		System.out.print("Enter the date of birth in 'yyyy/mm/dd' format): ");
 		String date = scn.nextLine();
+		System.out.print("Enter the current date 'yyyy/mm/dd' format): ");
+		String date1 = scn.nextLine();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 
 		try {
@@ -31,8 +34,11 @@ public class Date {
 		}
 		Period age = Period.between(birth, now);
 		long days = ChronoUnit.DAYS.between(birth, now);
-		System.out.println("Days different between now and  birthday you entered: " + days);
-
+		year = age.getYears();
+		month = age.getMonths();
+		days= age.getDays();		
+		System.out.println("On the base of the dates you entered, now you are: " +year 
+				+" years "+ month +" months " + days+ " days old ");
 	}
 
 }
